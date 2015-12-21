@@ -1,8 +1,10 @@
 how to run this
 =================================
 1)extract employee folder in your local server
-2) create database name it employee
-3)from command line 
+2) you should have compoaser install in your machine 
+3) from command line . go to the same path of project and type "composer install " or "composer update "
+4) create database name it employee
+5)from command line 
 go to this path 'C:\xampp\htdocs\employee"
 like this
 ----------------
