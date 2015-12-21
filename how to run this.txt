@@ -1,0 +1,15 @@
+how to run this
+=================================
+1)extract employee folder in your local server
+2) create database name it employee
+3)from command line 
+go to this path 'C:\xampp\htdocs\employee"
+like this
+----------------
+cd C:\xampp\htdocs\employee
+-----------------------
+then write this command 
+---------------------------------
+ php artisan migrate
+-----------------------------------
+4)after this your database will be ready .
