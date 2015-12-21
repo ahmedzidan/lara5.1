@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -9,9 +10,14 @@
             </div> 
             <div class="panel-body">
                 @if (count($employees) > 0)
-                   <table style="width:100% ; border: 1px solid black;">
-                        <tr><th>Name</th><th>Email</th><th>Addreess</th><th>Telephone</th><th>Salary</th><th>Date of Birth</th><th>Date of Hire</th><th>edit product</th><th>delete product</th></tr>   
+                   <?php
+                     require_once('delete_confirm.php');
+                    ?>
+                   <div class="table-responsive"> 
+                   <table  class="table table-striped table-bordered table-hover table-condensed">
+                        <thead><tr><th>Name</th><th>Email</th><th>Addreess</th><th>Telephone</th><th>Salary</th><th>Date of Birth</th><th>Date of Hire</th><th>edit </th><th>delete </th></tr></thead>   
                         @foreach ($employees as $employee)
+                        <tbody> 
                         <tr> 
                             <td>{{$employee->name}}</td>
                             <td>{{$employee->email}}</td>
@@ -20,13 +26,31 @@
                             <td>{{$employee->salary}}</td>
                             <td>{{$employee->data_of_birth}}</td>
                             <td>{{$employee->data_of_hire}}</td>
-                            <td><a href="http://localhost/employee/public/edit/{{$employee->id}}"> <button type="button" class="btn btn-info btn-md">Edit</button> </a></td>
-                            <td><a href="http://localhost/employee/public/delete/{{$employee->id}}"> <button type="button" class="btn btn-danger btn-md">Delete</button> </a></td>                           
+                            <td> <a href="http://localhost/employee/public/edit/{{$employee->id}}"> <button type="button" class="btn btn-info btn-xs" ><i class="glyphicon glyphicon-edit"></i>Edit</button> </a></td>
+                            <td>
+                              <form method="GET" action="http://localhost/employee/public/delete/{{$employee->id}}" accept-charset="UTF-8" style="display:inline">
+                                  <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmDelete" data-title="Delete Employee" data-message="Are you sure you want to delete this Employee ?">
+                                      <i class="glyphicon glyphicon-trash"></i> Delete
+                                  </button>
+                              </form>
+                            </td>                            
                         </tr>
+                        </tbody>
                         @endforeach
                     </table>
+                    </div>
                     <center>
                       {!! $employees->render(); !!}
+                    </center>
+                    <center>
+                    <a href="http://localhost/employee/public/add"><button class="btn btn-lg btn-primary" type="button" >
+                                      <i class="glyphicon glyphicon-plus"></i> Add New Employee
+                    </button></a>
+                    <form method="GET" action="http://localhost/employee/public/delete" accept-charset="UTF-8" style="display:inline">
+                                  <button class="btn btn-lg btn-danger" type="button" data-toggle="modal" data-target="#confirmDelete" data-title="Delete All Employee" data-message="Are you sure you want to delete All Employees ?">
+                                      <i class="glyphicon glyphicon-trash"></i> Delete All Employee
+                                  </button>
+                    </form>
                     </center>
                @else
                    <center>
@@ -38,5 +62,4 @@
         </div>
     </div>
 </div>          
-
 @endsection

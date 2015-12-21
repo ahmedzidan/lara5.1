@@ -28,53 +28,17 @@
 			padding-top: 6px;
 		}
 		
-		h1 {
-		    color: maroon;
-		    margin-left: 40px;
-		}
-		table ,tr ,td ,th{
-			border: 1px solid black;
-			 text-align: center;
-		}
-		td{
-			
-			padding-top:1cm; padding-bottom: 1cm;
-		}
+		
 	</style>
 
 </head>
 
 <body>
 	<div class="container">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-
-					<a class="navbar-brand" href="http://localhost/employee/">Employee list</a>
-				</div>
-
-				<div id="navbar" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav">
-						&nbsp;
-					</ul>
-
-					<ul class="nav navbar-nav navbar-right">
-					
-						<li><a href="http://localhost/employee/public/add"><i class="fa fa-btn fa-heart"></i>Add Employee</a></li>
-						<li><a href="http://localhost/employee/public/delete"><i class="fa fa-btn fa-sign-in"></i>Delete All </a></li>
-					
-					</ul>
-				</div>
-			</div>
-		</nav>
+		
 	</div>
 
 	@yield('content')
+  
 </body>
 </html>
